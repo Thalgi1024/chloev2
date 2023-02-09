@@ -1,7 +1,10 @@
 import discord
 from discord.ext import commands
 
-token = "MTA3MjY1ODgzNTMyOTc4NTg4Ng.G-9hNe.oLnuH3CIBxqRoZVEu-YkFCpb5tWsvRErt5DZ8E"
+import os
+from dotenv import load_dotenv
+
+token = os.getenv("DISCORD_TOKEN")
 
 class ChloeBot(commands.Bot):
   def __init__(self):
