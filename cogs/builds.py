@@ -91,7 +91,6 @@ class Builds(commands.Cog):
 
     parameters = [foundName[0][0], minspeed, maxspeed]
     # Create query for build
-    # buildquery = f"SELECT ImageLink FROM Builds WHERE CharacterName = \"{foundName[0][0]}\" AND Speed >= {minspeed} AND Speed <= {maxspeed} "
     buildquery = query.BUILD_BASE_QUERY
 
     if sets != "":
