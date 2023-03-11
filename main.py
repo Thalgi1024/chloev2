@@ -16,6 +16,7 @@ class ChloeBot(commands.Bot):
     await self.load_extension(f"cogs.misc")
     await self.load_extension(f"cogs.builds")
     await self.load_extension(f"cogs.roles")
+    await self.load_extension(f"cogs.reddit")
 
     await bot.tree.sync()
 

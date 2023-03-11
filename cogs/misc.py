@@ -6,7 +6,7 @@ import random
 
 class Misc(commands.Cog):
   def __init__(self, bot) -> None:
-    self.bot = bot
+    self.bot = bot 
 
   @app_commands.command(name="8ball", description="Ask the magic 8ball a question!")
   async def _8ball(self, interaction: discord.Interaction, question: str) -> None:
