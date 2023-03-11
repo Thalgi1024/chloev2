@@ -20,3 +20,7 @@ def execute(command, *values):
 def fetch(command, *values):
     cur.execute(command, tuple(values))
     return cur.fetchall()
+
+def fetchWithTuple(command, values):
+    cur.execute(command, values)
+    return cur.fetchall()
