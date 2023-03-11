@@ -22,19 +22,53 @@ def readDataFromImage(url):
   # Process text from image
   text = pytesseract.image_to_string(im1)
   lines = text.split('\n')
-  print(lines)
 
   # Set up stat values
-  Name = ""
-  Attack = 0
-  Defense = 0
-  Health = 0
-  Speed = 0
-  CChance = 0
-  CDamage = 0
-  Effectiveness = 0
-  EffectResist = 0
+  Attack = -1
+  Defense = -1
+  Health = -1
+  Speed = -1
+  CChance = -1
+  CDamage = -1
+  Effectiveness = -1
+  EffectResist = -1
+
+  # Go through lines and look for data
+  for line in lines:
+    #Remove any %
+    line = line.replace("%", "")
+    tokens = line.split(' ')
+    
+    # Read in data
+    if token[0] == "Attack":
+      try: 
+        Attack = int(token[1])
+      except:
+        print("Could not read attack")
+        Attack = -1
+    if token[0] == "Defense":
+      try: 
+        Defense = int(token[1])
+      except:
+        print("Could not read defense")
+        Defense = -1
+    if token[0] == "Health":
+      try: 
+        Health = int(token[1])
+      except:
+        print("Could not read health")
+        Helath = -1
+    if token[0] == "Speed":
+      try: 
+        Speed = int(token[1])
+      except:
+        print("Could not read speed")
+        Speed = -1
+    
+    print(line)
+
+  im1 = im1.save("out.png")
 
   #print(Name, Attack, Defense, Health, Speed, CChance, CDamage, Effectiveness, EffectResist)
 
-  return Name, Attack, Defense, Health, Speed, CChance, CDamage, Effectiveness, EffectResist
+  return Attack, Defense, Health, Speed, CChance, CDamage, Effectiveness, EffectResist
