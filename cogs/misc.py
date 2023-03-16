@@ -43,5 +43,12 @@ class Misc(commands.Cog):
 
     await interaction.response.send_message(embed = embed)
 
+  @app_commands.command(name="slap", description="Slap someone who deserves it!")
+  async def slap(self, interaction: discord.Interaction, target: discord.member) -> None:
+    background = "https://cdn.discordapp.com/attachments/1084209512254296158/1084209653782679653/slap.jpeg"
+
+    await interaction.response.send_message("In progress! You'll be able to slap kairuu soon :)")
+
+
 async def setup(bot) -> None:
   await bot.add_cog(Misc(bot))
