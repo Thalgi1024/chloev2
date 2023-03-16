@@ -73,7 +73,7 @@ class Builds(commands.Cog):
       return
 
     # Read stats from image
-    attack, defense, health, speed, cchance, cdamage, effectiveness,effectresist = readimage.readDataFromImage(imageurl)
+    attack, defense, health, speed, cchance, cdamage, effectiveness, effectresist = readimage.readDataFromImage(imageurl)
 
     # Send message to approval channel
     channel = self.bot.get_channel(1072746656178655242)
