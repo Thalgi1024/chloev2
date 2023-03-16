@@ -12,7 +12,7 @@ class ChloeBot(commands.Bot):
     super().__init__(command_prefix = "?", intents = discord.Intents.all())
 
   async def setup_hook(self):
-    await self.load_extension(f"cogs.utils")
+    await self.load_extension(f"cogs.welcome")
     await self.load_extension(f"cogs.misc")
     await self.load_extension(f"cogs.builds")
     await self.load_extension(f"cogs.roles")
