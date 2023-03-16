@@ -11,4 +11,4 @@ import cogs.db.readimage as readimage
 #  query = "INSERT INTO Names VALUES (?, ?)"
  # db.execute(query, nick, name)
 
-readimage.readDataFromImage("https://cdn.discordapp.com/attachments/1072673382694400051/1073342448153141318/unknown.png")
+readimage.readDataFromImage("https://media.discordapp.net/attachments/1007438571126399016/1007441693659906048/IMG_4573.png?width=1422&height=1066")

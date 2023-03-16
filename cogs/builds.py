@@ -4,6 +4,7 @@ from discord import app_commands
 
 from .db import db
 from .db import query
+from .db import readimage
 
 class Builds(commands.Cog):
   def __init__(self, bot) -> None:
@@ -35,7 +36,7 @@ class Builds(commands.Cog):
           break
 
   @app_commands.command(name="requestaddbuild", description="Request to add a build to the database. Sets should be separated by commas with no spaces.")
-  async def requestaddbuild(self, interaction: discord.Interaction, name: str, imageurl: str, attack: int, defense: int, health: int, speed: int, cchance: float, cdamage: float, effectiveness: float, effectresist: float, sets: str) -> None:
+  async def requestaddbuild(self, interaction: discord.Interaction, imageurl: str, name: str, sets: str) -> None:
     # Check to make sure inputs are valid
     validSets = [
       'speed', 
@@ -70,6 +71,9 @@ class Builds(commands.Cog):
     if len(charName) < 1:
       await interaction.response.send_message(f"Could not recognize the character {name}. Your character may not be included in database yet!")
       return
+
+    # Read stats from image
+    attack, defense, health, speed, cchance, cdamage, effectiveness,effectresist = readimage.readDataFromImage(imageurl)
 
     # Send message to approval channel
     channel = self.bot.get_channel(1072746656178655242)
