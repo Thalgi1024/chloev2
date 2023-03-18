@@ -14,17 +14,21 @@ class Welcome(commands.Cog):
   async def on_member_join(self, member):
     guild_id = member.guild.id
 
+    # Fetch information from database
     data = db.fetch(query.WELCOME_CHANNEL_QUERY, str(guild_id))
-    print(data)
 
-    if member.guild.id != 524067267730735107:
+    if len(data) < 1:
       return
 
-    channel = self.bot.get_channel(775185721182388275)
+    channel_id = data[0][0]
+    message = data[0][1]
+    imagelink = data[0][2]
+
+    channel = self.bot.get_channel(channel_id)
 
     embed = discord.Embed(
-      title = "Welcome to JTFNS!",
-      description = f"Welcome {member.mention}! Please make sure the read the rules, check out the role selection channel to select roles and gain access to the rest of the channels in the server!"
+      title = "Welcome!",
+      description = f"Welcome {member.mention}! {message}"
     )
 
     if not member.avatar == None:
